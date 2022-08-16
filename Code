@@ -1,0 +1,13 @@
+import folium
+way1=[[16.780001,80.849998],[16.710667165713765, 80.92772576061927],[16.56527181218188, 80.96068474229628],[16.444134842545402, 80.99295707852167],
+      [16.421083906665256, 81.110373450746]]
+from branca.element import Figure
+fig=Figure(width=550,height=350)
+f1=folium.FeatureGroup("Vehicle 1")
+map=folium.Map(location=[16.780001,80.849998])
+line_1=folium.vector_layers.PolyLine(way1,popup='<b>Path of Vehicle_1</b>',tooltip='Vehicle_1',color='blue',weight=10).add_to(f1)
+f1.add_to(map)
+folium.Marker(location=[16.780001,80.849998],popup='Starting point',tooltip='Nuzvidu').add_to(map)
+folium.Marker(location=[16.421083906665256, 81.110373450746],popup='Destination',tooltip='Mudinepalli').add_to(map)
+folium.LayerControl().add_to(map)
+map
